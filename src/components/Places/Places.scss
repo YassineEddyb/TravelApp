@@ -1,0 +1,15 @@
+.places {
+    width: 80vw;
+    margin: auto;
+    position: relative;
+
+
+    .places-container {
+        position: absolute;
+        top: -170px;
+        width: 100%;
+        // background-color: bisque;
+        gap: 1rem;
+        margin-bottom: 2rem;
+    }
+}

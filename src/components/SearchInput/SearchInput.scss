@@ -11,13 +11,13 @@
         border: none;
         outline: none;
         border-radius: 15px;
-        color: white;
+        // color: white;
         
         backdrop-filter: blur(2px);
         -webkit-backdrop-filter: blur(2px);
 
         &::placeholder {
-            color: #ddd;
+            color: #aaa;
             opacity: 1;
         }
     }

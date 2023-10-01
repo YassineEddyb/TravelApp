@@ -3,7 +3,7 @@
   margin: 0;
   box-sizing: border-box;
 
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 * {
@@ -14,4 +14,8 @@
 *:focus {
   outline: none;
   border: none;
+}
+
+body {
+  background-color: #f0f0f0;
 }
