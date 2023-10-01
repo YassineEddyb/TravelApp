@@ -1,0 +1,24 @@
+.search {
+    display: grid;
+    place-items: center;
+    width: 100vw;
+    height: 62vh;
+    max-width: 1430px;
+    margin: auto;
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        // background-color: maroon;
+
+
+        h1 {
+            color: white;
+            letter-spacing: 1px;
+            font-size: xxx-large;
+            margin-bottom: 2rem;
+        }
+    }
+}
