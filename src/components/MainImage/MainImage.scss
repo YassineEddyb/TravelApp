@@ -1,9 +1,12 @@
 .background-image {
+    max-width: 1430px;
     position: absolute;
-    width: 100%;
+    height: auto;
     z-index: -1;
+    top: 0;
 
     img {
+        width: 100%;
         max-width: 100%;
     }
 }

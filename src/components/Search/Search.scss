@@ -1,10 +1,17 @@
 .search {
+    position: relative;
     display: grid;
     place-items: center;
     width: 100vw;
-    height: 62vh;
-    max-width: 1430px;
+    height: 62vw;
+    max-height: 1430px;
+    // max-width: ;
     margin: auto;
+    overflow: hidden;
+
+    -webkit-box-shadow: inset 0px -115px 37px -54px rgba(255,255,255,1);
+    -moz-box-shadow: inset 0px -115px 37px -54px rgba(255,255,255,1);
+    box-shadow: inset 0px -115px 37px -54px rgba(255,255,255,1);
 
     .content {
         display: flex;
