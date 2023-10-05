@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import "./SearchInput.scss"
 
 import Button from '../Button/Button'
@@ -13,12 +13,24 @@ function SearchInput() {
     isLoaded.current = false;
   }
 
+  const keyDownHandler = event => {
+    if (event.key === 'Enter') {
+      console.log("user pressed enter")
+      event.preventDefault();
+
+      console.log(search)
+      setQuery(search);
+      isLoaded.current = false;
+    }
+  };
+
   return (
     <div className='search-input'>
       <input 
         className='input'
         type='text'
         value={search}
+        onKeyDown={keyDownHandler}
         onChange={(e) => setSearch(e.target.value)}
         placeholder='Search places, distinations and hotels' 
       />

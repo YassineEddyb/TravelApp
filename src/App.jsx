@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import './App.css'
 import Search from './components/Search/Search'
-import Places from './components/Places/Places'
 import { AppProvider } from './context/AppContext'
+import Images from './components/Images/Images'
 
 function App() {
 
@@ -10,7 +10,7 @@ function App() {
     <>
       <AppProvider >
         <Search />
-        <Places />
+        <Images />
       </AppProvider>
     </>
   )
