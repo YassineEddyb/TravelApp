@@ -12,7 +12,7 @@ const apiKey = "15169196-ea5f887f1bdb5d9fd3d3d234a";
 
 function Images() {
   const [data, setData] = useState([]);
-  const { query, isLoaded } = useApp();
+  const { query, isFetched } = useApp();
   const [isLoading, setIsLoading] = useState(false);
   const [page, setPage] = useState(1);
 
@@ -21,9 +21,9 @@ function Images() {
 
     try {
       console.log('fetching');
-      const res = await axios.get(`${apiHost}?&key=${apiKey}&q=${query}&page=${page}`)
+      const res = await axios.get(`${apiHost}?&key=${apiKey}&q=${query}&page=${1}`)
       setData(res.data.hits);
-      setPage(1);
+      setPage(2);
     } catch (error) {
       console.log(error);
     } finally {
@@ -36,9 +36,9 @@ function Images() {
 
     try {
       console.log('fetching');
+      setPage(prevPage => prevPage + 1);
       const res = await axios.get(`${apiHost}?&key=${apiKey}&q=${query}&page=${page}`)
       setData(prevData => [...prevData, ...res.data.hits]);
-      setPage(prevPage => prevPage + 1);
     } catch (error) {
       console.log(error);
     } finally {
@@ -47,37 +47,31 @@ function Images() {
   }
 
   useEffect (() => {
-    if (!isLoaded.current) {
+    if (!isFetched.current) {
       fetchImages();
-      isLoaded.current = true;
+      isFetched.current = true;
     }
-  }, [query, isLoaded.current]);
+  }, [query, isFetched.current]);
 
   const handleScroll = () => {
-    // Get the current scroll position
-    var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    if (!isLoading) {
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      var documentHeight = Math.max(
+        document.body.scrollHeight,
+        document.body.offsetHeight,
+        document.documentElement.clientHeight,
+        document.documentElement.scrollHeight,
+        document.documentElement.offsetHeight
+      );
 
-    // Get the total height of the document
-    var documentHeight = Math.max(
-      document.body.scrollHeight,
-      document.body.offsetHeight,
-      document.documentElement.clientHeight,
-      document.documentElement.scrollHeight,
-      document.documentElement.offsetHeight
-    );
+      var windowHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+      var distanceFromBottom = documentHeight - (scrollTop + windowHeight);
 
-    // Get the height of the window
-    var windowHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
-
-    // Calculate the distance from the bottom of the window to the bottom of the document
-    var distanceFromBottom = documentHeight - (scrollTop + windowHeight);
-
-    // Check if the distance from the bottom is less than or equal to a threshold (e.g., 10 pixels)
-    if (distanceFromBottom <= 10) {
-      console.log("fetch image on scroll")
-      fetchImagesOnScroll()
+      if (distanceFromBottom <= 10) {
+        console.log("fetch image on scroll")
+        fetchImagesOnScroll()
+      }
     }
-
   };
   
   useEffect(() => {
@@ -97,7 +91,7 @@ function Images() {
           gutter="0.5rem" 
         >
           {data.map((item, idx) => {
-            return <ImageCard key={idx} image={item.largeImageURL}/> 
+            return <ImageCard key={idx} image={item.largeImageURL} item={item}/> 
           })}
         </Masonry>
         </ResponsiveMasonry>

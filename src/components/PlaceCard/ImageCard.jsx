@@ -1,10 +1,10 @@
 import React from 'react'
 import "./ImageCard.scss"
 
-function ImageCard({image}) {
+function ImageCard({image, item}) {
 
   return (
-    <img className='image-card' src={image} alt="" />
+    <img className='image-card' src={image} alt={item.tags} />
   )
 }
 

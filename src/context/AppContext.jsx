@@ -3,7 +3,7 @@ import React, { createContext, useContext, useRef, useState } from 'react';
 const AppContext = createContext();
 
 export function AppProvider({ children }) {
-  const isLoaded = useRef(false);
+  const isFetched = useRef(false);
   const [query, setQuery] = useState('random');
 
   console.log(query)
@@ -12,7 +12,7 @@ export function AppProvider({ children }) {
     <AppContext.Provider value={{
       query,
       setQuery,
-      isLoaded
+      isFetched
     }}>
       {children}
     </AppContext.Provider>

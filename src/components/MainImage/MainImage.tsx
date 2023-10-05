@@ -4,7 +4,7 @@ import "./MainImage.scss"
 function MainImage() {
   return (
     <div className='background-image'>
-      <img src="https://pixabay.com/get/g81146b0c4c5e4df7ca0ec7fee0eeff7c9046d5e7df1ba4123db8690535fb342206a88d48160abeec5065f4b96c08addb0e6c4ef6e0eb4495c24c363062543f79_1280.jpg" />
+      <img src="https://pixabay.com/get/g44f85245a741099fbda3c8869e905a1fd13dff87b3e8feb0b85da65a8a2954003429c3c73ef9e899f5c4be1646b829ae3a666e5c98101bebc3052c0861803973_1280.jpg" />
     </div>
   )
 }

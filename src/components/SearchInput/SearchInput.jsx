@@ -6,11 +6,11 @@ import useApp from '../../context/AppContext'
 
 function SearchInput() {
   const [search, setSearch] = useState('')
-  const { setQuery, isLoaded } = useApp();
+  const { setQuery, isFetched } = useApp();
 
   const handleClick = () => {
     setQuery(search);
-    isLoaded.current = false;
+    isFetched.current = false;
   }
 
   const keyDownHandler = event => {
@@ -20,7 +20,7 @@ function SearchInput() {
 
       console.log(search)
       setQuery(search);
-      isLoaded.current = false;
+      isFetched.current = false;
     }
   };
 
