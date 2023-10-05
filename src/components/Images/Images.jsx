@@ -22,6 +22,21 @@ function Images() {
     try {
       console.log('fetching');
       const res = await axios.get(`${apiHost}?&key=${apiKey}&q=${query}&page=${page}`)
+      setData(res.data.hits);
+      setPage(1);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
+  const fetchImagesOnScroll = async () => {
+    setIsLoading(true);
+
+    try {
+      console.log('fetching');
+      const res = await axios.get(`${apiHost}?&key=${apiKey}&q=${query}&page=${page}`)
       setData(prevData => [...prevData, ...res.data.hits]);
       setPage(prevPage => prevPage + 1);
     } catch (error) {
@@ -39,11 +54,30 @@ function Images() {
   }, [query, isLoaded.current]);
 
   const handleScroll = () => {
-    if (window.innerHeight + document.documentElement.scrollTop !== document.documentElement.offsetHeight || isLoading) {
-      return;
+    // Get the current scroll position
+    var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    // Get the total height of the document
+    var documentHeight = Math.max(
+      document.body.scrollHeight,
+      document.body.offsetHeight,
+      document.documentElement.clientHeight,
+      document.documentElement.scrollHeight,
+      document.documentElement.offsetHeight
+    );
+
+    // Get the height of the window
+    var windowHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+
+    // Calculate the distance from the bottom of the window to the bottom of the document
+    var distanceFromBottom = documentHeight - (scrollTop + windowHeight);
+
+    // Check if the distance from the bottom is less than or equal to a threshold (e.g., 10 pixels)
+    if (distanceFromBottom <= 10) {
+      console.log("fetch image on scroll")
+      fetchImagesOnScroll()
     }
-    fetchImages();
-    // isLoaded.current = true;
+
   };
   
   useEffect(() => {
