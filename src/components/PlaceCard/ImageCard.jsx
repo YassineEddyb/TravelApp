@@ -1,9 +1,9 @@
-import React, {useLayoutEffect, useRef} from 'react'
+import React, {useEffect, useLayoutEffect, useRef, useState} from 'react'
 import "./ImageCard.scss"
 
 function ImageCard({item}) {
 
-  const ref = useRef(null);
+  const ref = useRef(0);
 
   const [width, setWidth] = useState(0);
 
@@ -11,9 +11,22 @@ function ImageCard({item}) {
     setWidth(ref.current.offsetWidth);
   }, []);
 
+  const handleResize = () => {
+    setWidth(ref.current.offsetWidth);
+  };
+
+  useEffect(() => {
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   return (
-    <div className='image-card' style={{height: `${width}`}}>
-      {/* <img className='img' src={item.webformatURL} alt={item.tags} /> */}
+    <div className='image-card' ref={ref}
+      style={{height: `${(width / item.webformatWidth) * item.webformatHeight}px`}}
+    >
+      <img className='img' src={item.webformatURL} alt={item.tags} />
       <div className='overlay'>
         {/* <span className='tags'>{item.tags}</span> */}
         <div className='user'>

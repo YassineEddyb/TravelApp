@@ -32,7 +32,7 @@ function SearchInput() {
         value={search}
         onKeyDown={keyDownHandler}
         onChange={(e) => setSearch(e.target.value)}
-        placeholder='Search places, distinations and hotels' 
+        placeholder='Search images, illustration and gifs' 
       />
       <input type='button' value="search" className="btn" onClick={handleClick}/>
     </div>

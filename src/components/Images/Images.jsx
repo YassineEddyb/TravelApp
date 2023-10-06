@@ -21,6 +21,7 @@ function Images() {
 
     try {
       console.log('fetching');
+      setData([]);
       const res = await axios.get(`${apiHost}?&key=${apiKey}&q=${query}&page=${1}&safesearch=true`)
       setData(res.data.hits);
       setPage(2);

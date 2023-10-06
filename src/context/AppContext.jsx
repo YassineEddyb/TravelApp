@@ -6,8 +6,6 @@ export function AppProvider({ children }) {
   const isFetched = useRef(false);
   const [query, setQuery] = useState('random');
 
-  console.log(query)
-
   return (
     <AppContext.Provider value={{
       query,
