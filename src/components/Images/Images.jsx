@@ -91,7 +91,7 @@ function Images() {
           gutter="0.5rem" 
         >
           {data.map((item, idx) => {
-            return <ImageCard key={idx} image={item.largeImageURL} item={item}/> 
+            return <ImageCard key={idx} item={item}/> 
           })}
         </Masonry>
         </ResponsiveMasonry>

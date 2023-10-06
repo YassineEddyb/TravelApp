@@ -1,11 +1,19 @@
-import React from 'react'
+import React, {useLayoutEffect, useRef} from 'react'
 import "./ImageCard.scss"
 
-function ImageCard({image, item}) {
+function ImageCard({item}) {
+
+  const ref = useRef(null);
+
+  const [width, setWidth] = useState(0);
+
+  useLayoutEffect(() => {
+    setWidth(ref.current.offsetWidth);
+  }, []);
 
   return (
-    <div className='image-card'>
-      <img className='img' src={image} alt={item.tags} />
+    <div className='image-card' style={{height: `${width}`}}>
+      {/* <img className='img' src={item.webformatURL} alt={item.tags} /> */}
       <div className='overlay'>
         {/* <span className='tags'>{item.tags}</span> */}
         <div className='user'>
