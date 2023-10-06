@@ -21,7 +21,7 @@ function Images() {
 
     try {
       console.log('fetching');
-      const res = await axios.get(`${apiHost}?&key=${apiKey}&q=${query}&page=${1}`)
+      const res = await axios.get(`${apiHost}?&key=${apiKey}&q=${query}&page=${1}&safesearch=true`)
       setData(res.data.hits);
       setPage(2);
     } catch (error) {
@@ -37,7 +37,7 @@ function Images() {
     try {
       console.log('fetching');
       setPage(prevPage => prevPage + 1);
-      const res = await axios.get(`${apiHost}?&key=${apiKey}&q=${query}&page=${page}`)
+      const res = await axios.get(`${apiHost}?&key=${apiKey}&q=${query}&page=${page}&safesearch=true`)
       setData(prevData => [...prevData, ...res.data.hits]);
     } catch (error) {
       console.log(error);
