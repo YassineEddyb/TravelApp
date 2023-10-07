@@ -4,7 +4,7 @@ const AppContext = createContext();
 
 export function AppProvider({ children }) {
   const isFetched = useRef(false);
-  const [query, setQuery] = useState('random');
+  const [query, setQuery] = useState('backgrounds');
 
   return (
     <AppContext.Provider value={{

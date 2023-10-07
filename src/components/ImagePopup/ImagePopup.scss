@@ -1,0 +1,28 @@
+.popup-overlay {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    background-color: rgba($color: #000000, $alpha: 0.7);
+
+    backdrop-filter: blur(2px);
+
+    .popup-card {
+        width: 80%;
+        background-color: #f0f0f0;
+        border-radius: 20px;
+        
+        // height: 600px;
+
+        .img {
+            width: 80%;
+            img {
+                max-width: 100%;
+            }
+        }
+    }
+
+}

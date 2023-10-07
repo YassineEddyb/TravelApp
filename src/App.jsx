@@ -3,6 +3,7 @@ import './App.css'
 import Search from './components/Search/Search'
 import { AppProvider } from './context/AppContext'
 import Images from './components/Images/Images'
+import ImagePopup from './components/ImagePopup/ImagePopup'
 
 function App() {
 
@@ -11,6 +12,7 @@ function App() {
       <AppProvider >
         <Search />
         <Images />
+        <ImagePopup />
       </AppProvider>
     </>
   )

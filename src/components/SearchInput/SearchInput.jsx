@@ -34,7 +34,7 @@ function SearchInput() {
         onChange={(e) => setSearch(e.target.value)}
         placeholder='Search images, illustration and gifs' 
       />
-      <input type='button' value="search" className="btn" onClick={handleClick}/>
+      <Button className="btn" onClick={handleClick}/>
     </div>
   )
 }
