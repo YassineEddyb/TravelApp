@@ -18,7 +18,27 @@
         
         .top-info {
             position: relative;
-            height: 70px;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+
+            .buttons {
+                display: flex;
+                gap: 1rem;
+                .like-btn {
+                    padding: 0.5rem;
+                    border: 1px solid #777;
+                    color: #777;
+                }
+
+                .download-btn {
+                    text-decoration: none;
+                    padding: 0.7rem 1rem;
+                    background-color: #00ab6b;
+                    color: white;
+                    border-radius: 5px;
+                }
+            }
         }
 
         .bottom-info {

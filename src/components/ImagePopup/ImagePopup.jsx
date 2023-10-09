@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import "./ImagePopup.scss"
 
 import UserCard from "../UserCard/UserCard"
+import {BsFillSuitHeartFill} from "react-icons/bs"
 
 function ImagePopup() {
     const [visible, isVisible] = useState(true);
@@ -13,6 +14,12 @@ function ImagePopup() {
             <div className='popup-card'>
                 <div className='top-info'>
                     <UserCard userImage="" userName="osheeen"/>
+                    <div className='buttons'>
+                        <div className='like-btn'>
+                            <BsFillSuitHeartFill size={22}/>                        
+                        </div>
+                        <a className='download-btn' href=''>download</a>
+                    </div>
                 </div>
                 <div className='img'>
                     <img src="https://pixabay.com/get/ge336184390b3f7a756e96c14294eced1476c26546c93c19f730e58c0b724408bdf3412ea4b033c643ef83014d49ffe0a45857f25cdaccb567b66a676230ad070_1280.jpg" alt="" />
