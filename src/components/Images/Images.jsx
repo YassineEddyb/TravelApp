@@ -12,7 +12,7 @@ const apiKey = "15169196-ea5f887f1bdb5d9fd3d3d234a";
 
 function Images() {
   const [data, setData] = useState([]);
-  const { query, isFetched } = useApp();
+  const { query, isFetched, setImage } = useApp();
   const [isLoading, setIsLoading] = useState(false);
   const [page, setPage] = useState(1);
 
@@ -92,7 +92,7 @@ function Images() {
           gutter="0.5rem" 
         >
           {data.map((item, idx) => {
-            return <ImageCard key={idx} item={item}/> 
+            return <ImageCard key={idx} item={item} onClick={(item) => setImage(item)}/> 
           })}
         </Masonry>
         </ResponsiveMasonry>

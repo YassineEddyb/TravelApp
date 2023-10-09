@@ -4,13 +4,16 @@ const AppContext = createContext();
 
 export function AppProvider({ children }) {
   const isFetched = useRef(false);
+  const [image, setImage] = useState(null)
   const [query, setQuery] = useState('backgrounds');
 
   return (
     <AppContext.Provider value={{
       query,
       setQuery,
-      isFetched
+      isFetched,
+      image,
+      setImage
     }}>
       {children}
     </AppContext.Provider>

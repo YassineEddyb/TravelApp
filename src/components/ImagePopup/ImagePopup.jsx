@@ -3,28 +3,45 @@ import "./ImagePopup.scss"
 
 import UserCard from "../UserCard/UserCard"
 import {BsFillSuitHeartFill} from "react-icons/bs"
+import useApp from '../../context/AppContext';
 
 function ImagePopup() {
-    const [visible, isVisible] = useState(true);
+    const { image } = useApp()
 
     return (
         <>
-        {visible && 
+        {image && 
         <div className="popup-overlay">
             <div className='popup-card'>
                 <div className='top-info'>
-                    <UserCard userImage="" userName="osheeen"/>
-                    <div className='buttons'>
-                        <div className='like-btn'>
-                            <BsFillSuitHeartFill size={22}/>                        
-                        </div>
-                        <a className='download-btn' href=''>download</a>
-                    </div>
+                    <UserCard userImage={image.userImageURL} userName={image.user}/>
+
                 </div>
                 <div className='img'>
                     <img src="https://pixabay.com/get/ge336184390b3f7a756e96c14294eced1476c26546c93c19f730e58c0b724408bdf3412ea4b033c643ef83014d49ffe0a45857f25cdaccb567b66a676230ad070_1280.jpg" alt="" />
                 </div>
-                <div className='bottom-info'></div>
+                <div className='bottom-info'>
+                    <div className='more-info'>
+                        <div className='info'>
+                            <span> Views </span>
+                            <span> 10,342 </span>
+                        </div>
+                        <div className='info'>
+                            <span> Likes </span>
+                            <span> 2,342 </span>
+                        </div>
+                        <div className='info'>
+                            <span> Downloads </span>
+                            <span> 342 </span>
+                        </div>
+                    </div>
+                    <div className='buttons'>
+                        <div className='like-btn'>
+                            <BsFillSuitHeartFill size={18}/>                
+                        </div>
+                        <a className='download-btn' href=''>Download</a>
+                    </div>
+                </div>
             </div>
         </div>}
         </>

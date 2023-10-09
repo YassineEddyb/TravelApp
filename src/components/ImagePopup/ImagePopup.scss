@@ -11,24 +11,56 @@
     backdrop-filter: blur(5px);
 
     .popup-card {
+        height: auto;
         width: 95%;
         max-width: 1340px;
         background-color: #f0f0f0;
         border-radius: 10px;
+        font-size: 14px;
+        padding: 1rem;
+
         
         .top-info {
             position: relative;
-            padding: 1rem;
+            padding-bottom: 1rem;
             display: flex;
             justify-content: space-between;
+        }
+
+        .bottom-info {
+            padding-top: 1rem;
+            display: flex;
+            justify-content: space-between;
+
+            .more-info {
+                display: flex;
+                gap: 3rem;
+
+                .info {
+                    span {
+                        display: block;
+
+                        &:first-child {
+                            color: #777;
+                            margin-bottom: 0.5rem;
+                        }
+                    }
+                }
+            }
 
             .buttons {
                 display: flex;
                 gap: 1rem;
+
                 .like-btn {
-                    padding: 0.5rem;
+                    display: grid;
+                    place-items: center;
+                    border-radius: 3px;
+                    width: 45px;
+                    height: 45px;
                     border: 1px solid #777;
                     color: #777;
+                    cursor: pointer;
                 }
 
                 .download-btn {
@@ -36,13 +68,10 @@
                     padding: 0.7rem 1rem;
                     background-color: #00ab6b;
                     color: white;
-                    border-radius: 5px;
+                    border-radius: 3px;
+                    cursor: pointer;
                 }
             }
-        }
-
-        .bottom-info {
-            height: 60px;
         }
 
         .img {
