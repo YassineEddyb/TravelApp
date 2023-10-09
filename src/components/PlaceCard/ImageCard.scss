@@ -75,26 +75,5 @@
 
         .tags {
         }
-
-        .user {
-            position: absolute;
-            left: 1rem;
-            bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.7rem;
-
-            .user-img {
-                background-color: #aaa;
-                width: 40px;
-                height: 40px;
-                border-radius: 20px;
-                overflow: hidden;
-
-                img {
-                    width: 100%;
-                }
-            }
-        }
     }
 }

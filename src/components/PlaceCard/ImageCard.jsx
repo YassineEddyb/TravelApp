@@ -1,5 +1,6 @@
 import React, {useEffect, useLayoutEffect, useRef, useState} from 'react'
 import "./ImageCard.scss"
+import UserCard from '../UserCard/UserCard';
 
 function ImageCard({item}) {
 
@@ -29,12 +30,7 @@ function ImageCard({item}) {
       <img className='img' src={item.webformatURL} alt={item.tags} />
       <div className='overlay'>
         {/* <span className='tags'>{item.tags}</span> */}
-        <div className='user'>
-          <div className='user-img'>
-            <img src={item.userImageURL} alt="" />
-          </div>
-          <span className='username'>{item.user}</span>
-        </div>
+        <UserCard userImage={item.userImageURL} userName={item.user}/>
       </div>
     </div>
   )
