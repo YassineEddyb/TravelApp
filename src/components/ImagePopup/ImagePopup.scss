@@ -13,12 +13,12 @@
     .popup-card {
         height: auto;
         width: 95%;
+        max-height: 95vh;
         max-width: 1340px;
         background-color: #f0f0f0;
         border-radius: 10px;
         font-size: 14px;
         padding: 1rem;
-
         
         .top-info {
             position: relative;
@@ -75,10 +75,17 @@
         }
 
         .img {
-            width: 80%;
+            display: grid;
+            width: 90%;
+            max-height: 90vh;
+            background-color: #aaa;
             margin: auto;
+            place-items: center ;
+
+
             img {
                 max-width: 100%;
+                max-height: 75vh;
             }
         }
     }

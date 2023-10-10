@@ -92,7 +92,7 @@ function Images() {
           gutter="0.5rem" 
         >
           {data.map((item, idx) => {
-            return <ImageCard key={idx} item={item} onClick={(item) => setImage(item)}/> 
+            return <ImageCard key={idx} item={item} onClick={() => setImage(item)}/> 
           })}
         </Masonry>
         </ResponsiveMasonry>

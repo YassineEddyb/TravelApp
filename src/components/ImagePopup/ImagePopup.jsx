@@ -3,10 +3,18 @@ import "./ImagePopup.scss"
 
 import UserCard from "../UserCard/UserCard"
 import {BsFillSuitHeartFill} from "react-icons/bs"
+import {AiOutlineClose} from "react-icons/ai"
 import useApp from '../../context/AppContext';
 
+function formatNumber(number)
+{
+    return String(number).replace(/(.)(?=(\d{3})+$)/g,'$1,')
+}
+
 function ImagePopup() {
-    const { image } = useApp()
+    const { image, setImage } = useApp();
+
+    console.log("image: ", image);
 
     return (
         <>
@@ -15,24 +23,26 @@ function ImagePopup() {
             <div className='popup-card'>
                 <div className='top-info'>
                     <UserCard userImage={image.userImageURL} userName={image.user}/>
-
+                    <div className="close-btn" onClick={() => {setImage(null)}}>
+                        <AiOutlineClose size={20}/>
+                    </div>
                 </div>
                 <div className='img'>
-                    <img src="https://pixabay.com/get/ge336184390b3f7a756e96c14294eced1476c26546c93c19f730e58c0b724408bdf3412ea4b033c643ef83014d49ffe0a45857f25cdaccb567b66a676230ad070_1280.jpg" alt="" />
+                    <img src={image.largeImageURL} alt="" />
                 </div>
                 <div className='bottom-info'>
                     <div className='more-info'>
                         <div className='info'>
                             <span> Views </span>
-                            <span> 10,342 </span>
+                            <span> {formatNumber(image.views)} </span>
                         </div>
                         <div className='info'>
                             <span> Likes </span>
-                            <span> 2,342 </span>
+                            <span> {formatNumber(image.likes)} </span>
                         </div>
                         <div className='info'>
                             <span> Downloads </span>
-                            <span> 342 </span>
+                            <span> {formatNumber(image.downloads)} </span>
                         </div>
                     </div>
                     <div className='buttons'>
